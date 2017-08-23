@@ -1,0 +1,19 @@
+%html
+  %head
+    %title StockUp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/header'
+
+    - if notice
+      #notice-wrapper
+        %p#notice= notice
+    - elsif alert
+      #notice-wrapper
+        %p#alert= alert
+
+    .container
+      = yield
+    = render 'layouts/footer'
