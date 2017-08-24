@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :storage do
-    storage_name "MyString"
+    association :user, factory: :user
+    storage_name { %w[Fridge Refrigerator Pantry].sample }
   end
 end
