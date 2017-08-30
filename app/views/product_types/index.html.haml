@@ -1,0 +1,17 @@
+%p#notice= notice
+%h3 Product Types
+%table
+  %thead
+    %tr
+      %th Product Type
+      %th Unit
+      %th{:colspan => "5"}
+  %tbody
+    - @product_type.each do |product_type|
+      %tr
+        %td= product_type.product_type
+        %td= product_type.unit
+        %td= link_to 'Edit',  edit_product_type_path(product_type)
+        %td= link_to 'Delete', product_type_path(product_type), method: :delete, data: { confirm: 'Are you sure you want to delete?' }
+%br/
+= link_to 'Add new product type', new_product_type_path
